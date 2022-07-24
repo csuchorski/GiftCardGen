@@ -5,18 +5,23 @@ const amountInput = document.getElementById('amountInput')
 const dateInput = document.getElementById('dateInput')
 const saveBtn = document.getElementById('saveBtn')
 
-function draw() {
+function drawInit() {
     const img = new Image();
     img.addEventListener('load', function () {
         ctx.drawImage(img, 0, 0);
+
+        ctx.textAlign = "center"
         //Font size for the amount
-        ctx.font = '55px gabriola'
-        ctx.fillText("50", 450, 300)
+        ctx.font = 'bold 55px gabriola'
+        ctx.fillText(amountInput.value, 473, 305, 75)
 
         //Font size for the date
         ctx.font = '40px gabriola'
-        ctx.fillText("05.12.2022", 410, 361)
+        ctx.fillText(dateInput.value, 480, 361)
     })
     img.src = "images/bon.png";
 }
+
+amountInput.addEventListener('change', drawInit)
+dateInput.addEventListener('change', drawInit)
 
